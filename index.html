@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Sudokode</title>
+  <meta content="Gregory Ewing" name="author"></head><body>
+<h1>Sudokode</h1>
+<span style="font-weight: bold;">Problem</span>: You are a spy who wants to smuggle small amounts of information out of the country.<br>
+<br>
+<span style="font-weight: bold;">Solution</span>: Get a job creating sudoku puzzles for a newspaper, and use this program.<br>
+<h2>What it does</h2>
+Takes text and encodes it in the form of sudoku grids, and the reverse. Generates either puzzles or filled-in grids.<br>
+<h3>Limitations</h3>
+<ul>
+  <li>Only 7-bit ASCII characters supported.</li>
+  <li>Only decodes filled-in grids. Puzzles must be solved by the user before decoding.<br>
+</li>
+</ul>
+<h2>Why did I write it</h2>Inspired by a comment on <a href="https://www.youtube.com/watch?v=X8jsijhllIA">3blue1brown's video</a>
+about Hamming codes, that likened them to sudoku puzzles, and a reply
+pointing out that sudoku puzzles don't carry any information. I set out
+to remedy that.<br>
+<h2>Download</h2>
+<a href="sudokode.py">sudokode.py</a><br>
+<h2>Usage</h2>
+<pre>Usage: sudokode.py (-e [-p] [-s] | -d | -t) [-D] &lt; input &gt; output<br><br>Options:<br>  -h, --help    show this help message and exit<br>  -e, --encode  read plain text from stdin and write sudoku grids to stdout<br>  -d, --decode  read sudoku grids from stdin and write plain text to stdout<br>  -p, --puzzle  generate puzzle grids instead of filled-in grids<br>  -t, --test    run a brief internal test<br>  -s, --stats   report encoding statistics<br>  -D, --debug   write debugging information to stderr<br></pre>
+<h2>Example</h2>
+
+<pre>% cat plain.txt<br>THE MISSILES ARE HIDDEN IN IDAHO<br>% sudokode.py -e &lt; plain.txt &gt; secret.txt<br>% cat secret.txt<br>+---+---+---+<br>|586|129|347|<br>|124|837|965|<br>|793|465|182|<br>+---+---+---+<br>|915|678|234|<br>|637|942|851|<br>|248|351|679|<br>+---+---+---+<br>|369|714|528|<br>|451|283|796|<br>|872|596|413|<br>+---+---+---+<br><br>+---+---+---+<br>|817|249|536|<br>|935|876|421|<br>|246|351|879|<br>+---+---+---+<br>|678|423|195|<br>|392|615|784|<br>|154|987|263|<br>+---+---+---+<br>|761|592|348|<br>|429|138|657|<br>|583|764|912|<br>+---+---+---+<br><br>+---+---+---+<br>|896|412|753|<br>|317|589|462|<br>|452|367|198|<br>+---+---+---+<br>|539|726|841|<br>|684|931|527|<br>|271|845|936|<br>+---+---+---+<br>|768|294|315|<br>|923|158|674|<br>|145|673|289|<br>+---+---+---+<br><br>+---+---+---+<br>|945|816|327|<br>|123|457|689|<br>|678|239|145|<br>+---+---+---+<br>|214|365|798|<br>|356|798|214|<br>|789|124|536|<br>+---+---+---+<br>|437|581|962|<br>|561|942|873|<br>|892|673|451|<br>+---+---+---+<br><br>% sudokode.py -d &lt; secret.txt<br>THE MISSILES ARE HIDDEN IN IDAHO<br>% <br></pre>
+<br>
+
+
+
+</body></html>
